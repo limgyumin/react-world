@@ -1,3 +1,5 @@
+"use client";
+
 import type { PropsWithChildren, ReactNode } from "react";
 
 import { Tabs } from "components/shared/ui/tabs";
@@ -5,6 +7,7 @@ import { Tabs } from "components/shared/ui/tabs";
 const enum FeedType {
   GLOBAL = "global",
   FOLLOWING = "following",
+  POPULAR = "popular",
 }
 
 type Props = {
@@ -18,6 +21,7 @@ const FeedLayout = ({ global, following }: PropsWithChildren<Props>) => {
       <Tabs.List>
         <Tabs.Trigger value={FeedType.FOLLOWING}>Following Feed</Tabs.Trigger>
         <Tabs.Trigger value={FeedType.GLOBAL}>Global Feed</Tabs.Trigger>
+        <Tabs.Trigger value={FeedType.POPULAR}># implementation</Tabs.Trigger>
       </Tabs.List>
 
       <Tabs.Content value={FeedType.FOLLOWING}>{following}</Tabs.Content>
