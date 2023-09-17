@@ -8,7 +8,7 @@ const TAGS_STICKY_OFFSET = TAGS_TOP + HEADER_HEIGHT;
 
 const TagsLayout = ({ children }: PropsWithChildren) => {
   return (
-    <Sidebar.Root align="right" top={TAGS_TOP}>
+    <Sidebar.Root position="right" top={TAGS_TOP}>
       <Sidebar.Sticky offset={TAGS_STICKY_OFFSET}>
         <Sidebar.Content>
           <Sidebar.Title>Popular Tags</Sidebar.Title>
