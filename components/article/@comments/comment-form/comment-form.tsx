@@ -4,12 +4,13 @@ import { Form } from "components/shared/ui/form";
 export const CommentForm = () => {
   return (
     <Form.Root>
-      <Form.Label label="Comment">
+      <Form.Field>
+        <Form.Label>Comment</Form.Label>
         <Form.Textarea placeholder="Write a comment ..." />
-      </Form.Label>
+      </Form.Field>
 
       <div className="flex justify-end">
-        <Button size="lg">Post</Button>
+        <Button size="md">Post</Button>
       </div>
     </Form.Root>
   );

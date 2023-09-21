@@ -3,14 +3,11 @@ import { forwardRef } from "react";
 
 import { clsx } from "lib/clsx";
 
-type Props = ComponentPropsWithoutRef<"label"> & {
-  label: string;
-};
+type Props = ComponentPropsWithoutRef<"label">;
 
-export const Label = forwardRef<HTMLLabelElement, Props>(({ children, className, label, ...rest }, ref) => {
+export const Label = forwardRef<HTMLLabelElement, Props>(({ children, className, ...rest }, ref) => {
   return (
-    <label ref={ref} {...rest} className={clsx("flex flex-col gap-3 text-sm font-medium text-zinc-950", className)}>
-      {label}
+    <label ref={ref} {...rest} className={clsx("text-sm font-medium text-zinc-950", className)}>
       {children}
     </label>
   );

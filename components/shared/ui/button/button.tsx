@@ -13,10 +13,11 @@ type VariantValue = "primary" | "secondary";
 
 const enum Size {
   SMALL = "sm",
+  MEDIUM = "md",
   LARGE = "lg",
 }
 
-type SizeValue = "sm" | "lg";
+type SizeValue = "sm" | "md" | "lg";
 
 type BaseProps = {
   variant?: VariantValue;
@@ -30,21 +31,15 @@ export const Button = forwardRef<HTMLButtonElement, Props>(
   ({ children, className, variant = "primary", size = "sm", icon, ...rest }, ref) => {
     return (
       <button ref={ref} {...rest} className={clsx(styles.base, styles.variant[variant], styles.size[size], className)}>
-        {icon ? (
-          <>
-            {icon}
-            {children}
-          </>
-        ) : (
-          children
-        )}
+        {icon ? icon : null}
+        {children}
       </button>
     );
   },
 );
 
 const styles = {
-  base: "relative flex cursor-pointer items-center font-normal",
+  base: "relative flex cursor-pointer items-center justify-center font-normal",
   variant: {
     [Variant.PRIMARY]: "bg-zinc-950 text-white",
     [Variant.SECONDARY]:
@@ -52,6 +47,7 @@ const styles = {
   },
   size: {
     [Size.SMALL]: "h-7 rounded-[4px] px-3 text-xs gap-1",
-    [Size.LARGE]: "text-sm h-9 rounded-[4px] px-6 gap-1",
+    [Size.MEDIUM]: "text-sm h-9 rounded-[4px] px-6 gap-1",
+    [Size.LARGE]: "text-md h-12 rounded-[4px] px-6 gap-1",
   },
 } as const;
